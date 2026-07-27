@@ -1,54 +1,124 @@
-# A Deck of Us — Memory Birthday Site
+# A Deck of Us — Birthday Memory Site
 
-A little "pull a card" birthday website. Opens on a heartfelt intro, then shows
-a stacked card pack — each pull flips a card in 3D to reveal a photo/video and
-a memory.
+A personal birthday website: a festive home page with a letter and memory deck, organized by category. Pull cards to reveal photos and videos one at a time, with captions and dates.
 
-## Files
+No build step — plain HTML, CSS, and JavaScript.
 
-- `index.html` — page structure
-- `style.css` — all styling (palette, type, the flip animation)
-- `memories-data.js` — **the only file you need to edit**
-- `app.js` — the logic (shuffling, flipping, lazy loading, confetti)
+## What it does
 
-## Making it yours
+1. **Home page** — Birthday theme with cake, balloons, confetti, fireworks, and an intro message.
+2. **Letter** — Tap **Open me** to read the personal birthday card.
+3. **Category picker** — Choose what kind of memories to browse (mirror selfies, cute moments, funny moments, etc.).
+4. **Memory deck** — Pull cards to reveal the next photo or video. Go back to previous cards, reset the deck, or switch categories anytime.
 
-Open `memories-data.js`:
+## Project structure
 
-1. Set `SITE_CONFIG.recipientName` and `SITE_CONFIG.introMessage` at the top.
-2. Replace the demo data. Delete the `buildDemoMemories(...)` demo block and
-   set `MEMORIES` to your own array, one object per memory:
+```
+birthday/
+├── index.html          # Page layout + home page intro text
+├── style.css           # All styling and animations
+├── app.js              # Deck logic, letter modal, fireworks, lazy loading
+├── memories-data.js    # Memories, categories, birthday card message
+├── cake.png            # Site favicon
+├── images/             # Photos, grouped by category
+│   ├── mirror/
+│   ├── cute/
+│   ├── funny/
+│   ├── trio/
+│   └── special/
+└── videos/             # Videos, grouped by category
+    ├── cute/
+    ├── funny/
+    ├── trio/
+    └── special/
+```
 
-   ```js
-   const MEMORIES = [
-     {
-       type: "photo",                        // "photo" or "video"
-       src: "assets/photos/01.jpg",           // your file, or any image/video URL
-       caption: "The day we got lost looking for tacos.",
-       date: "June 2019",                     // optional
-       special: false,                        // true = gold border + confetti on pull
-     },
-     // ...as many as you like — there's no limit in the code.
-   ];
-   ```
+## Personalizing the site
 
-3. Put your photos/videos in an `assets` folder next to these files and point
-   `src` at them with a relative path (e.g. `assets/photos/beach.jpg`).
+### 1. Home page intro — `index.html`
 
-The demo ships with 100+ placeholder photos (from a free placeholder image
-service) and two sample videos, purely so you can see the deck working before
-you swap in your own media.
+Edit the recipient name and welcome message:
 
-## How performance stays fast with 100+ memories
+- `#recipientHeadline` — e.g. "My sweet Nawal"
+- `#introMessage` — the paragraphs below the name
 
-- Only the card currently being viewed loads its photo/video — nothing else
-  in the deck is fetched until it's actually pulled.
-- Thumbnails in the "Kept memories" gallery use `IntersectionObserver` so they
-  only load once scrolled into view.
-- Videos use `preload="none"` and don't play until their card has flipped.
+### 2. Birthday card — `memories-data.js`
 
-## Opening it
+Edit `BIRTHDAY_CARD`. This is what appears when the letter is tapped:
 
-Just open `index.html` in a browser — no build step, no server needed. To
-share it as a real website, upload the whole folder (including `assets`) to
-any static host (GitHub Pages, Netlify, Vercel, etc.).
+```js
+const BIRTHDAY_CARD = {
+  heading: "To Nawal",
+  message:
+    "First paragraph.\n\n" +
+    "Second paragraph — use \\n\\n between paragraphs.",
+  signoff: "Celine ♡",
+};
+```
+
+### 3. Memories — `memories-data.js`
+
+Each entry in `MEMORIES` looks like this:
+
+```js
+{
+  type: "photo",                    // "photo" or "video"
+  src: "images/cute/img1.jpg",      // path relative to index.html
+  poster: "images/cute/img1.jpg",     // optional, for videos
+  caption: "A note about this moment",
+  date: "June 2025",                // optional
+  category: "cute",                 // must match a CATEGORIES id
+  special: false,                   // true = gold border + confetti
+}
+```
+
+For videos, use `.mp4` (or `.MP4`) paths under `videos/`:
+
+```js
+{
+  type: "video",
+  src: "videos/cute/vid1.mp4",
+  caption: "A little video memory",
+  date: "May 2026",
+  category: "cute",
+  special: false,
+}
+```
+
+**Important:** `src` must match the real filename exactly, including extension (`.jpg`, `.JPG`, `.PNG`, `.mp4`, etc.).
+
+### 4. Categories — `memories-data.js`
+
+Default categories:
+
+| id | Label |
+|---|---|
+| `favorite-trio` | Your Favorite Trio |
+| `mirror-selfies` | Mirror Selfies |
+| `funny` | Funny Moments |
+| `cute` | Cute Moments |
+| `special` | Special |
+
+To add a category, add an entry to `CATEGORIES` and tag memories with that `id`. Memories with `special: true` also appear in the Special category.
+
+### 5. Special pulls — `memories-data.js`
+
+`SITE_CONFIG.specialEveryAbout` controls how often a random pull gets a gold border and confetti (in addition to memories marked `special: true`).
+
+## Performance
+
+Media is lazy-loaded — only the card currently on screen is fetched. Nothing else loads until it is pulled.
+
+For faster loading, keep individual photos under ~1 MB when possible. Many phone photos are much larger and will still work, but compressing them helps.
+
+## Running locally
+
+Open `index.html` directly in a browser, or use a simple local server (recommended):
+
+```bash
+npx serve .
+```
+
+Then visit the URL shown (usually `http://localhost:3000`).
+
+Upload the entire folder — including `images/` and `videos/` — to any static host (GitHub Pages, Netlify, Vercel, etc.) to share it online.
