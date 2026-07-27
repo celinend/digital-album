@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <title>A Deck of Us 💌</title>
+  <link rel="icon" type="image/x-icon" href="cake.png">
+  <meta name="description" content="A little deck of memories, made for your birthday." />
+
+  <!-- Fonts: Cormorant Garamond (display serif), Jost (body sans), Parisienne (signature script) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&family=Parisienne&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Ambient floating petals / light motes, purely decorative -->
+  <div class="ambient" id="ambient" aria-hidden="true"></div>
+
+  <!-- ================= INTRO ================= -->
+  <section id="intro" class="screen intro">
+    <canvas id="introFireworks" class="intro-fireworks" aria-hidden="true"></canvas>
+
+    <div class="intro-decor" aria-hidden="true">
+      <div class="intro-banner">
+        <span class="intro-banner-text">It's your special day</span>
+      </div>
+
+      <div class="intro-balloons">
+        <div class="balloon balloon--1"></div>
+        <div class="balloon balloon--2"></div>
+        <div class="balloon balloon--3"></div>
+      </div>
+
+      <div class="intro-confetti">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="intro-sparkles">
+        <span>✦</span><span>✦</span><span>✦</span><span>✦</span><span>✦</span><span>✦</span>
+      </div>
+
+      <div class="intro-cake">
+        <div class="cake-glow"></div>
+        <svg class="cake-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="186" rx="78" ry="12" fill="rgba(169,99,111,0.2)" />
+          <path d="M30 118c0-10 14-16 32-16h76c18 0 32 6 32 16v42c0 12-16 20-36 20H66c-20 0-36-8-36-20v-42z"
+            fill="#F7D9E0" stroke="#C98A93" stroke-width="3" />
+          <path d="M52 118c0-6 10-10 22-10h52c12 0 22 4 22 10" stroke="#E9CC9B" stroke-width="4"
+            stroke-linecap="round" />
+          <path d="M44 92c0-8 12-14 26-14h60c14 0 26 6 26 14v18c0 10-14 16-30 16H74c-16 0-30-6-30-16V92z" fill="#FFF5F8"
+            stroke="#C98A93" stroke-width="3" />
+          <path d="M56 92c0-4 8-7 18-7h52c10 0 18 3 18 7" stroke="#D9A65E" stroke-width="3" stroke-linecap="round" />
+          <circle cx="72" cy="108" r="5" fill="#E7B9A8" />
+          <circle cx="100" cy="112" r="5" fill="#D9A65E" />
+          <circle cx="128" cy="108" r="5" fill="#F0B9C6" />
+          <circle cx="86" cy="124" r="5" fill="#F0B9C6" />
+          <circle cx="114" cy="124" r="5" fill="#E7B9A8" />
+          <rect x="68" y="132" width="12" height="12" rx="2" fill="#D9A65E" />
+          <rect x="94" y="136" width="12" height="12" rx="2" fill="#E7B9A8" />
+          <rect x="120" y="132" width="12" height="12" rx="2" fill="#F0B9C6" />
+          <g class="cake-candles">
+            <rect x="78" y="52" width="8" height="42" rx="3" fill="#E9CC9B" />
+            <rect x="96" y="44" width="8" height="50" rx="3" fill="#F0B9C6" />
+            <rect x="114" y="52" width="8" height="42" rx="3" fill="#E9CC9B" />
+            <ellipse class="cake-flame" cx="82" cy="46" rx="7" ry="10" fill="#FFD27A" />
+            <ellipse class="cake-flame-inner" cx="82" cy="48" rx="3.5" ry="5.5" fill="#FFF4D6" />
+            <ellipse class="cake-flame cake-flame--delay" cx="100" cy="38" rx="8" ry="11" fill="#FFB347" />
+            <ellipse class="cake-flame-inner cake-flame--delay" cx="100" cy="40" rx="4" ry="6" fill="#FFF4D6" />
+            <ellipse class="cake-flame" cx="118" cy="46" rx="7" ry="10" fill="#FFD27A" />
+            <ellipse class="cake-flame-inner" cx="118" cy="48" rx="3.5" ry="5.5" fill="#FFF4D6" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <button type="button" class="intro-letter" id="openLetterBtn" aria-label="Open the birthday card">
+      <span class="letter-label">Open me</span>
+      <div class="letter-sparkle" aria-hidden="true">♡</div>
+      <svg class="letter-svg" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 28h136a10 10 0 0 1 10 10v62a10 10 0 0 1-10 10H12a10 10 0 0 1-10-10V38a10 10 0 0 1 10-10z"
+          fill="#FFF8F2" stroke="#C98A93" stroke-width="3" />
+        <path d="M12 28l68 48 68-48" stroke="#E7B9A8" stroke-width="3" stroke-linecap="round" />
+        <path class="letter-paper" d="M22 42h116v72H22z" fill="#FFFFFF" stroke="#F0B9C6" stroke-width="2" />
+        <path class="letter-front" d="M12 28l68 48 68-48v72a10 10 0 0 1-10 10H12a10 10 0 0 1-10-10V28z"
+          fill="rgba(255,255,255,0.45)" stroke="#C98A93" stroke-width="3" />
+        <circle cx="80" cy="62" r="16" fill="#F0B9C6" stroke="#D9A65E" stroke-width="2" />
+        <path d="M80 56c-3 4-6 7-6 10a6 6 0 0 0 12 0c0-3-3-6-6-10z" fill="#C98A93" />
+      </svg>
+    </button>
+
+    <div class="intro-card intro-card--party">
+      <p class="script-line">Happy Birthday</p>
+      <p class="eyebrow">a little something for</p>
+
+      <h1 class="intro-title" id="recipientHeadline">My sweet Nawal</h1>
+      <p class="intro-message" id="introMessage">
+        I gathered some of our favorite memories into this little digital album for you to enjoy.
+      </p>
+      <p class="intro-message" id="introMessage">
+        P.S. I might not be the best at capturing every moment, but I truly hope it brings a smile to your face 🤍
+      </p>
+      <button class="btn btn-primary" id="enterBtn">
+        <span>Open the deck</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= CATEGORY PICKER ================= -->
+  <section id="categories" class="screen categories hidden">
+    <div class="categories-card">
+      <p class="eyebrow">choose a vibe</p>
+      <h2 class="categories-title">What do you want to see?</h2>
+      <p class="categories-sub">Pick a category to shuffle through its memories</p>
+      <div class="category-grid" id="categoryGrid" role="list"></div>
+      <button class="btn btn-ghost btn-back" id="backToIntroBtn" type="button">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Back</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= MAIN ================= -->
+  <section id="main" class="screen main hidden">
+    <header class="topbar">
+      <button class="reset-btn" id="changeCategoryBtn" title="Change category" aria-label="Change category">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2.5 5.5h11M2.5 10.5h11M5.5 2.5v11M10.5 2.5v11" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" />
+        </svg>
+        <span>Categories</span>
+      </button>
+      <button class="reset-btn reset-btn--right" id="resetBtn" title="Start the deck over"
+        aria-label="Start the deck over">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13.5 8A5.5 5.5 0 1 1 11.8 4.2M13.5 2v3.2h-3.2" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>Reset</span>
+      </button>
+      <p class="eyebrow">deck of memories</p>
+      <h2 class="main-title" id="mainTitle">Pull a Memory</h2>
+      <p class="category-badge" id="categoryBadge"></p>
+      <p class="counter" id="counterText">0 of <span id="totalCount">0</span> found</p>
+    </header>
+
+    <div class="stage">
+      <!-- The pack: a stack of cards, topmost is interactive -->
+      <div class="pack" id="pack">
+        <div class="pack-card back-3" aria-hidden="true"></div>
+        <div class="pack-card back-2" aria-hidden="true"></div>
+        <div class="pack-card back-1" aria-hidden="true"></div>
+
+        <div class="card" id="activeCard">
+          <div class="card-inner" id="cardInner">
+            <div class="card-content" id="cardContent">
+              <div class="card-placeholder" id="cardPlaceholder">
+                <div class="seal">
+                  <span class="seal-heart">♡</span>
+                </div>
+                <p class="card-placeholder-label">Your next memory is waiting</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-row">
+        <button class="btn btn-icon" id="prevBtn" title="Back to previous memory" aria-label="Back to previous memory"
+          disabled>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="btn btn-primary btn-pull" id="pullBtn">
+          <span id="pullBtnLabel">Pull a Memory</span> <span class="heartpulse">💖</span>
+        </button>
+      </div>
+      <p class="empty-note hidden" id="emptyNote">That's every memory in the deck — thank you for looking through all of
+        them 💫</p>
+    </div>
+  </section>
+
+  <!-- ================= BIRTHDAY CARD (opens from letter) ================= -->
+  <div class="birthday-card-modal hidden" id="birthdayCardModal">
+    <div class="birthday-card-backdrop" id="birthdayCardBackdrop">
+      <div class="birthday-card-panel" role="dialog" aria-modal="true" aria-labelledby="birthdayCardHeading">
+        <button class="birthday-card-close" id="birthdayCardClose" type="button" aria-label="Close card">×</button>
+        <div class="birthday-card-inner">
+          <p class="birthday-card-script">Happy Birthday</p>
+          <h2 class="birthday-card-heading" id="birthdayCardHeading"></h2>
+          <div class="birthday-card-body" id="birthdayCardBody"></div>
+          <p class="birthday-card-signoff" id="birthdayCardSignoff"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sparkle / confetti canvas overlay for special pulls -->
+  <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
+
+  <script src="memories-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
