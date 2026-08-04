@@ -50,7 +50,7 @@ const BIRTHDAY_CARD = {
 
 "وجودك بحياتي نعمة كبيرة أنا دايمًا بحمد ربي عليها\n\n" +
 
-"شكرًا لأنك كنتِ دايمًا سبب في إنو أيامي الجامعية أحلى بكتير من ما كنت بتخيل\n\n" +
+"شكرًا لأنك كنتِ دايمًا سبب في إنه أيامي الجامعية أحلى بكتير من ما كنت بتخيل\n\n" +
 
 "بتمنالك سنة جديدة مليانة فرح، نجاح، تحقيق أحلام، وكل الأشياء الحلوة اللي بتستاهليها وأكثر. وإن شاء الله نكمل نعمل ذكريات أحلى وأحلى مع بعض 💖✨",
 
@@ -80,7 +80,7 @@ const MEMORIES = [
   { type: "photo", src: "images/mirror/img13.jpg", caption: "Icon mall", date: "July 2025", category: "mirror-selfies", special: false },
   { type: "photo", src: "images/mirror/img14.jpg", caption: "اول خيانة لاحلام وطلعنا بدونها", date: "November 2024", category: "mirror-selfies", special: false },
 
-  { type: "photo", src: "images/cute/img1.jpg", caption: "I know you hate this photo, but it has to be here", date: "July 2024", category: "cute", special: false },
+  { type: "photo", src: "images/cute/img1.jpg", caption: "", date: "July 2024", category: "cute", special: false },
   { type: "photo", src: "images/cute/img2.jpg", caption: "Don't really remember that day but it's cute", date: "October 2024", category: "cute", special: false },
   { type: "photo", src: "images/cute/img3.jpg", caption: " ", date: "October 2024", category: "cute", special: false },
   { type: "photo", src: "images/cute/img4.PNG", caption: "Day one footaball", date: "April 2026", category: "cute", special: false },
@@ -92,7 +92,7 @@ const MEMORIES = [
   { type: "photo", src: "images/cute/img10.jpg", caption: " ", date: "June 2026", category: "cute", special: false },
   { type: "photo", src: "images/cute/img11.jpg", caption: " ", date: "June 2026", category: "cute", special: false },
   { type: "photo", src: "images/cute/img12.jpg", caption: " ", date: "October 2025", category: "cute", special: false },
-  { type: "photo", src: "images/cute/img13.jpg", caption: "We look so cute!! ", date: "July 2025", category: "cute", special: false },
+  { type: "photo", src: "images/cute/img13.jpg", caption: "", date: "July 2025", category: "cute", special: false },
   { type: "photo", src: "images/cute/img14.jpg", caption: " ", date: "December 2025", category: "cute", special: false },
   { type: "photo", src: "images/cute/img15.jpg", caption: " ", date: "December 2025", category: "cute", special: false },
   { type: "photo", src: "images/cute/img16.JPG", caption: " ", date: "May 2025", category: "cute", special: false },
@@ -109,7 +109,7 @@ const MEMORIES = [
   { type: "photo", src: "images/cute/img27.PNG", caption: "Day two football games", date: "April 2026", category: "cute", special: false },
   { type: "photo", src: "images/cute/img28.jpg", caption: " ", date: "December 2024", category: "cute", special: false },
   { type: "photo", src: "images/cute/img29.jpg", caption: "Ahlam's birthday", date: "November 2024", category: "cute", special: false },
-  { type: "photo", src: "images/cute/img30.jpg", caption: " buying Ahlam's birthday gift", date: "November 2024", category: "cute", special: false },
+  { type: "photo", src: "images/cute/img30.jpg", caption: "buying Ahlam's birthday gift", date: "November 2024", category: "cute", special: false },
   { type: "photo", src: "images/cute/img31.jpg", caption: " ", date: "April 2026", category: "cute", special: false },
   { type: "photo", src: "images/cute/img32.JPG", caption: " ", date: "April 2026", category: "cute", special: false },
   { type: "photo", src: "images/cute/img33.JPG", caption: "", date: "December 2024", category: "cute", special: false },
@@ -117,7 +117,7 @@ const MEMORIES = [
   { type: "photo", src: "images/cute/img35.jpeg", caption: " ", date: "August 2024", category: "cute", special: false },
   { type: "photo", src: "images/cute/img36.jpg", caption: " ", date: "December 2025", category: "cute", special: false },
   { type: "photo", src: "images/cute/img37.jpg", caption: "Our inner artists came out.", date: "August 2025", category: "cute", special: false },
-  { type: "photo", src: "images/cute/img38.jpg", caption: "Attara traffic", date: "November 2024", category: "cute", special: false },
+  { type: "photo", src: "images/cute/img38.jpg", caption: "ازمة عطارة", date: "November 2024", category: "cute", special: false },
   { type: "video", src: "videos/cute/vid1.mp4", caption: " ", date: "June 2026", category: "cute", special: false },
   { type: "video", src: "videos/cute/vid2.mp4", caption: " ", date: "November 2025", category: "cute", special: false },
   { type: "video", src: "videos/cute/vid3.MP4", caption: " ", date: "May 2026", category: "cute", special: false },
@@ -132,7 +132,7 @@ const MEMORIES = [
   { type: "photo", src: "images/funny/img3.jpg", caption: " ", date: "July 2025", category: "funny", special: false },
   { type: "photo", src: "images/funny/img4.jpg", caption: "ايام ما كان تلفوني اجدد واحد وبتجربوا بالكاميرا", date: "April 2025", category: "funny", special: false },
   { type: "photo", src: "images/funny/img5.jpg", caption: "I still think mine is better", date: "June 2026", category: "funny", special: false },
-  { type: "photo", src: "images/funny/img6.jpg", caption: "We can't forget these", date: "July 2025", category: "funny", special: false },
+  { type: "photo", src: "images/funny/img6.jpg", caption: "", date: "July 2025", category: "funny", special: false },
   { type: "photo", src: "images/funny/img7.jpg", caption: " ", date: "July 2025", category: "funny", special: false },
   { type: "photo", src: "images/funny/img8.jpg", caption: " ", date: "July 2025", category: "funny", special: false },
   { type: "photo", src: "images/funny/img9.jpg", caption: " ", date: "July 2025", category: "funny", special: false },
@@ -142,9 +142,9 @@ const MEMORIES = [
   { type: "video", src: "videos/funny/vid1.mp4", caption: "Sorry but this video has to be here", date: "April 2026", category: "funny", special: false },
   { type: "video", src: "videos/funny/vid2.mp4", caption: " ", date: "December 2025", category: "funny", special: false },
   { type: "video", src: "videos/funny/vid3.mp4", caption: "Visa and a car! We are RICH", date: "July 2025", category: "funny", special: false },
-  { type: "video", src: "videos/funny/vid4.mp4", caption: " 🚬🚬", date: "November 2024", category: "funny", special: false },
-  { type: "video", src: "videos/funny/vid5.mp4", caption: "فجاة صرنا نشجع الصيدلية", date: "April 2026", category: "funny", special: false },
-  { type: "video", src: "videos/funny/vid6.mp4", caption: "ديماا المغرب", date: "December 2025", category: "funny", special: false },
+  { type: "video", src: "videos/funny/vid4.mp4", caption: " ", date: "November 2024", category: "funny", special: false },
+  { type: "video", src: "videos/funny/vid5.mp4", caption: "فجاة صرنا نشجع الصيدلة", date: "April 2026", category: "funny", special: false },
+  { type: "video", src: "videos/funny/vid6.mp4", caption: " من احلى ايام الجامعة", date: "December 2025", category: "funny", special: false },
   { type: "video", src: "videos/funny/vid7.mp4", caption: " ", date: "October 2024", category: "funny", special: false },
 
   { type: "photo", src: "images/trio/img1.jpg", caption: " ", date: "July 2025", category: "favorite-trio", special: false },
